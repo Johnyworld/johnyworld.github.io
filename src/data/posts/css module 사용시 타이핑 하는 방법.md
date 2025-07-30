@@ -1,8 +1,8 @@
 ---
 Created: 2023-10-27
 tags:
-  - 블로그발행
   - 팁
+  - 블로그발행
 ---
 > typescript + nextjs 환경 기준이다. 아마 react 에서도 될 것 같긴 하다.
 

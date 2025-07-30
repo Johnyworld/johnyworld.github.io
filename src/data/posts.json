@@ -7,31 +7,17 @@
     "tags": ["공부"]
   },
   {
-    "title": "영상요약 - 5년만에 구글에서 수석 개발자가 된 방법(주인공들의 이야기)",
-    "path": "src/data/posts/영상요약 - 5년만에 구글에서 수석 개발자가 된 방법(주인공들의 이야기).md",
-    "createdAt": "2024-10-04",
-    "modifiedAt": "2024-10-29T00:06:26.370Z",
-    "tags": ["공부"]
-  },
-  {
-    "title": "웹 접근성 지침 정리",
-    "path": "src/data/posts/웹 접근성 지침 정리.md",
-    "createdAt": "2024-08-20",
-    "modifiedAt": "2024-08-20T01:32:06.045Z",
-    "tags": ["공부", "팁"]
-  },
-  {
     "title": "월급쟁이부자들에서의 6개월",
     "path": "src/data/posts/월급쟁이부자들에서의 6개월.md",
     "createdAt": "2024-08-12",
-    "modifiedAt": "2024-08-13T04:19:09.508Z",
+    "modifiedAt": "2025-07-09T04:06:29.190Z",
     "tags": ["에세이"]
   },
   {
     "title": "브라우저 탭을 닫아도 clean-up 함수가 실행 되지는 않는다",
     "path": "src/data/posts/브라우저 탭을 닫아도 clean-up 함수가 실행 되지는 않는다.md",
     "createdAt": "2024-01-19",
-    "modifiedAt": "2024-08-08T05:58:07.412Z",
+    "modifiedAt": "2025-07-04T06:26:21.526Z",
     "tags": ["팁"]
   },
   {
@@ -52,7 +38,7 @@
     "title": "늦었지만 tailwind CSS 를 써봤다",
     "path": "src/data/posts/늦었지만 tailwind CSS 를 써봤다.md",
     "createdAt": "2023-11-14",
-    "modifiedAt": "2024-08-04T09:57:27.188Z",
+    "modifiedAt": "2025-07-16T01:48:22.144Z",
     "tags": ["에세이"]
   },
   {
@@ -66,7 +52,7 @@
     "title": "css module 사용시 타이핑 하는 방법",
     "path": "src/data/posts/css module 사용시 타이핑 하는 방법.md",
     "createdAt": "2023-10-27",
-    "modifiedAt": "2024-06-30T06:41:10.819Z",
+    "modifiedAt": "2025-07-04T06:42:36.535Z",
     "tags": ["팁"]
   },
   {
@@ -133,6 +119,13 @@
     "tags": ["공부"]
   },
   {
+    "title": "Peer Dependencies 에 대하여",
+    "path": "src/data/posts/Peer Dependencies 에 대하여.md",
+    "createdAt": "2022-03-01",
+    "modifiedAt": "2025-07-15T01:12:34.272Z",
+    "tags": ["공부", "NPM"]
+  },
+  {
     "title": "React 에서의 List와 key",
     "path": "src/data/posts/React 에서의 List와 key.md",
     "createdAt": "2022-02-24",
@@ -164,14 +157,14 @@
     "title": "Clean Code",
     "path": "src/data/posts/Clean Code.md",
     "createdAt": "2022-01-28",
-    "modifiedAt": "2024-06-30T06:28:25.237Z",
+    "modifiedAt": "2025-07-05T13:23:04.404Z",
     "tags": ["독서"]
   },
   {
     "title": "문서 주도 개발",
     "path": "src/data/posts/문서 주도 개발.md",
     "createdAt": "2022-01-25",
-    "modifiedAt": "2024-08-04T10:00:31.031Z",
+    "modifiedAt": "2025-06-22T14:17:43.430Z",
     "tags": ["에세이"]
   },
   {
@@ -199,7 +192,7 @@
     "title": "초생산성",
     "path": "src/data/posts/초생산성.md",
     "createdAt": "2021-08-22",
-    "modifiedAt": "2024-06-30T06:28:03.007Z",
+    "modifiedAt": "2025-07-05T13:25:27.272Z",
     "tags": ["독서"]
   },
   {
@@ -285,5 +278,11 @@
     "createdAt": "2020-10-05",
     "modifiedAt": "2024-06-30T06:43:42.006Z",
     "tags": ["튜토리얼"]
+  },
+  {
+    "title": "복잡한 z-index 문제 해결하기",
+    "path": "src/data/posts/복잡한 z-index 문제 해결하기.md",
+    "modifiedAt": "2025-07-30T12:08:30.453Z",
+    "tags": ["에세이"]
   }
 ]
