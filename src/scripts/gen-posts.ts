@@ -40,7 +40,7 @@ const main = async () => {
     'utf-8',
   );
 
-  fs.cpSync(config.vaultSrc + '/resume', config.targetDir, { recursive: true });
+  fs.cpSync(config.vaultSrc + '/area/resume', config.targetDir, { recursive: true });
 };
 
 const scanMdFiles = (rootPath: string) => {
