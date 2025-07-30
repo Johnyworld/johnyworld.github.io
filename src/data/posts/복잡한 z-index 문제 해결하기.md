@@ -1,7 +1,5 @@
 ---
-Type: blog
-Completed: 2025-05-30
-Created: 
+Created: 2025-06-26
 tags:
   - 에세이
   - 블로그발행
