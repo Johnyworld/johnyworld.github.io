@@ -1,12 +1,5 @@
 [
   {
-    "title": "구글 seo 효율을 높이기 위해 meta tag 보다 json-ld 로 구조화된 데이터를 만들어주면 좋다",
-    "path": "src/data/posts/구글 seo 효율을 높이기 위해 meta tag 보다 json-ld 로 구조화된 데이터를 만들어주면 좋다.md",
-    "createdAt": "2025-07-04",
-    "modifiedAt": "2025-08-22T14:01:41.585Z",
-    "tags": ["팁", "SEO"]
-  },
-  {
     "title": "복잡한 z-index 문제 해결하기",
     "path": "src/data/posts/복잡한 z-index 문제 해결하기.md",
     "createdAt": "2025-06-26",
