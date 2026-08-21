@@ -1,8 +1,8 @@
 ---
-Created: 2023-12-05
 tags:
-  - 블로그발행
   - 문제해결
+  - 블로그발행
+Created: 2023-12-05
 ---
 > 부제 : RHF - handleSubmit 은 더이상 onSubmit 콜백 에러를 잡지 않는다.
 > 

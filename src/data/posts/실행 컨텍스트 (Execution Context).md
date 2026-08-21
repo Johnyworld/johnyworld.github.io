@@ -1,8 +1,8 @@
 ---
-Created: 2022-01-29
 tags:
   - 공부
   - 블로그발행
+Created: 2022-01-29
 ---
 자바스크립트의 실행컨텍스트는 중요하다. 실행컨텍스트를 이해하면 Scope, Hoisting, Closure 를 함께 이해하기 쉬워지며, Event Loop와도 관련이 있다.
 

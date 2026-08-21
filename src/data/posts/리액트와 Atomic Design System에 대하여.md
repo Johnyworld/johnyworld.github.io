@@ -1,8 +1,8 @@
 ---
-Created: 2021-08-21
 tags:
   - 에세이
   - 블로그발행
+Created: 2021-08-21
 ---
 ![post-thumbnail](https://velog.velcdn.com/images/johnyworld/post/49d0c59a-75e9-4efe-91e8-3ab6c8ad63d1/atomic-design-process.png)
 

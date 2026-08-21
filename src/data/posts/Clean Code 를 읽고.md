@@ -1,11 +1,8 @@
 ---
-Status: Complete
-Type: Tech
-Completed: 2022-01-20
-Created: 2022-01-28
 tags:
-  - 블로그발행
   - 독서
+  - 블로그발행
+Created: 2022-01-28
 ---
 	저자: 로버트 C. 마틴
 

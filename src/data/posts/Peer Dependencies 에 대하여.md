@@ -1,5 +1,4 @@
 ---
-Type: blog
 Created: 2022-03-01
 tags:
   - 공부

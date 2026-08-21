@@ -1,8 +1,8 @@
 ---
-Created: 2023-01-30
 tags:
-  - 블로그발행
   - 번역
+  - 블로그발행
+Created: 2023-01-30
 ---
 https://beta.reactjs.org/learn/you-might-not-need-an-effect
 

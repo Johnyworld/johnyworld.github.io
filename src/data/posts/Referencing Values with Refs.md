@@ -1,8 +1,8 @@
 ---
-Created: 2023-02-06
 tags:
-  - 블로그발행
   - 번역
+  - 블로그발행
+Created: 2023-02-06
 ---
 컴포넌트가 어떤 정보를 "기억"하고 싶지만 [새로운 렌더링을 발생](https://beta.reactjs.org/learn/render-and-commit)시키게 하고싶지 않을 때 ref 를 사용할 수 있다.
 
