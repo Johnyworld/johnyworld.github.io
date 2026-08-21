@@ -6,7 +6,7 @@
 
 ## 서비스 개발/운영, 문제해결
 
-- 안정성과 개인 학습을 위해 [**스토리북 주도 개발(SDD)**](https://johnykim.me/post/%EB%AC%B8%EC%84%9C%20%EC%A3%BC%EB%8F%84%20%EA%B0%9C%EB%B0%9C#%F0%9F%93%98%20%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B6%81%20%EC%A3%BC%EB%8F%84%20%EA%B0%9C%EB%B0%9C) 과 **TDD**를 지키며 개발
+- 안정성과 개인 학습을 위해 [**스토리북 주도 개발(SDD)**](https://johnyworld.github.io/post/%EB%AC%B8%EC%84%9C%20%EC%A3%BC%EB%8F%84%20%EA%B0%9C%EB%B0%9C#%F0%9F%93%98%20%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B6%81%20%EC%A3%BC%EB%8F%84%20%EA%B0%9C%EB%B0%9C) 과 **TDD**를 지키며 개발
 - 개인 학습을 위해 **EC2, RDS(MySQL), Route53, S3** 등 유료 AWS 서비스를 적극 이용
 - 쉽고 직관적으로 가계부를 쓸 수 있도록 **드래그 앤 드롭** 기능 자체 개발
 - EC2 환경을 개발 환경과 동일하게 맞추기 위해 **Docker** 적용

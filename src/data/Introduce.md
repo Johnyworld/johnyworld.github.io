@@ -107,7 +107,7 @@ iScrim 제품은 전 세계 아마추어 E-Sports 생태계를 만들기 위해 
 
 개인 프로젝트
 
-https://johnykim.me/work/tumssum
+https://johnyworld.github.io/work/tumssum
 
 오랜시간 써 온 가계부를 더 편리하게 쓰기 위해 공부도 할 겸 만들어 본 프로젝트입니다. 최소 기능으로 먼저 배포하여 9개월 넘게 직접 사용하며 테스트 했습니다. 
 
@@ -158,7 +158,7 @@ https://johnykim.me/work/tumssum
 
 - Mobile : 010-4806-3340
 - Email : johnyworld@naver.com
-- Blog : https://johnykim.me
+- Blog : https://johnyworld.github.io
 - LinkedIn: https://www.linkedin.com/in/fe-johnykim/
 - Github : https://github.com/Johnyworld
 - Velog : https://velog.io/@johnyworld
