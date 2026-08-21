@@ -1,10 +1,39 @@
 # 프론트엔드 엔지니어 김재환의 테크 블로그 소스코드 저장소
 
-https://johnykim.me 로 구경 오세요.
+https://johnyworld.github.io 로 구경 오세요.
 
 ## 배포 가이드
 
-- johnyworld/devlog 레포지토리 main 브랜치에 머지 되면 vercel에 자동 배포됩니다.
+`main` 브랜치에 머지되면 GitHub Actions(`.github/workflows/deploy.yml`)가
+정적 빌드(`next build` → `out/`)를 만들어 GitHub Pages 로 배포합니다.
+
+### 글 발행
+
+포스트는 빌드 시점에 레포에 커밋된 `src/data` 를 읽습니다.
+따라서 Obsidian vault 에서 글을 뽑아 커밋해야 배포에 반영됩니다.
+
+```bash
+yarn gen-posts
+git add src/data
+git commit -m "data: Update posts"
+git push
+```
+
+### 최초 설정 (한 번만)
+
+1. 레포 이름이 `johnyworld.github.io` 여야 `https://johnyworld.github.io` 루트로 서빙됩니다.
+2. Settings → Pages → Source 를 **GitHub Actions** 로 변경.
+3. Settings → Secrets and variables → Actions 에 `NEXT_PUBLIC_GTM` 추가.
+
+### 제약
+
+GitHub Pages 는 정적 파일만 서빙하므로 서버 런타임이 없습니다.
+
+- 요청 시점 API(`cookies()`, 서버 컴포넌트의 `searchParams`) 사용 불가.
+  테마는 `<head>` 인라인 스크립트로, 카테고리 필터는 클라이언트에서 처리합니다.
+- 동적 라우트(`/post/[fileName]`, `/work/[id]`)는 `generateStaticParams` 로
+  빌드 시점에 전부 생성됩니다. 새 경로는 재배포해야 생깁니다.
+- 없는 경로는 `out/404.html`(`src/app/not-found.tsx`)이 서빙됩니다.
 
 ## 개발 가이드
 

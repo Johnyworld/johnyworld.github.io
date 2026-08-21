@@ -9,8 +9,8 @@ export const getProjects = (): Work[] => {
       createdAt: '2023-11-14',
       thumbnail:
         'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/resume/devlog-1.png',
-      github: 'https://github.com/Johnyworld/devlog',
-      href: 'https://johnykim.me',
+      github: 'https://github.com/Johnyworld/johnyworld.github.io',
+      href: 'https://johnyworld.github.io',
       hasOwnPage: true,
     },
     {

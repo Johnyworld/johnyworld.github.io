@@ -16,7 +16,7 @@ export default function Analytics() {
     }
   }, [pathname, searchParams]);
 
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' || !GTM_ID) {
     return null;
   }
 

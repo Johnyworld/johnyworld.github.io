@@ -3,8 +3,8 @@ import { GoToTop } from '@containers/GoToTop';
 import { Footer } from '@containers/Footer';
 import { Header } from '@containers/Header';
 import { Suspense } from 'react';
-import { getCookie } from 'cookies-next';
-import { cookies } from 'next/headers';
+import { Metadata } from 'next';
+import { DOMAIN_URL } from '@utils/constants';
 
 import '@style/index.scss';
 import '@style/main.css';
@@ -15,19 +15,27 @@ const description = '프론트엔드 개발자 조니의 블로그입니다.';
 const keywords =
   '프론트엔드, 개발자, 조니킴, 블로그, 김재환, frontend, developer, engineer, johny, johny kim, blog';
 
+export const metadata: Metadata = {
+  metadataBase: new URL(DOMAIN_URL),
+};
+
+// 정적 export 에서는 서버가 쿠키를 읽을 수 없으므로,
+// 첫 페인트 전에 인라인 스크립트로 테마를 결정합니다.
+const themeInitializerScript = `(function() {
+  var matched = document.cookie.match(/(?:^|; )johnylog_theme=([^;]*)/);
+  var saved = matched ? decodeURIComponent(matched[1]) : null;
+  var theme =
+    saved === 'dark' || saved === 'light'
+      ? saved
+      : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+})()`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const initialTheme = getCookie('johnylog_theme', { cookies });
-
-  const themeInitializerScript = `(function() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  })()`;
-
   return (
-    <html lang="ko" data-theme={initialTheme}>
+    <html lang="ko">
       <head>
         <title>Johny Kim</title>
         <meta
@@ -57,13 +65,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
           rel="stylesheet"
         />
-        {!initialTheme && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: themeInitializerScript,
-            }}
-          />
-        )}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitializerScript,
+          }}
+        />
       </head>
       <body>
         <Suspense>

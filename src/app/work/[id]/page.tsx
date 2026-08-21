@@ -1,7 +1,7 @@
 import PageContent from '@components/layouts/PageContent';
 import Markdown from '@components/molecules/Markdown';
-import { parseBase64ToString } from '@utils/parseBase64ToString';
-import { EACH_WORK_API_END_POINT } from '@utils/constants';
+import { WORK_DIR_PATH } from '@utils/constants';
+import { readDataFile } from '@utils/readDataFile';
 import { Main } from '@components/layouts/Main';
 import { Divider } from '@components/atoms/Divider';
 import { WorkTitle } from '@components/organisms/WorkTitle';
@@ -18,25 +18,19 @@ interface Props {
   };
 }
 
-async function getData(fileName: string) {
-  const res = await fetch(`${EACH_WORK_API_END_POINT}/${fileName}`, {
-    headers: { Authorization: process.env.NEXT_PUBLIC_GITHUB_AUTH ?? '' },
-  });
-  if (!res.ok) {
-    throw new Error('Work 데이터를 불러오는데 실패했습니다.');
-  }
-  return res.json();
+export function generateStaticParams() {
+  return [...getProjects(), ...getToyProjects()]
+    .filter(work => work.hasOwnPage)
+    .map(work => ({ id: work.id }));
 }
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   try {
     const id = decodeURI(params.id);
-    const fileName = id + '.md';
-    const data = await getData(fileName);
+    const markdownContent = readDataFile(`${WORK_DIR_PATH}/${id}.md`);
     const projects = getProjects();
     const toyProjects = getToyProjects();
     const project = [...projects, ...toyProjects].find(work => work.id === id);
-    const markdownContent = parseBase64ToString(data.content);
 
     return (
       <Main>
@@ -46,7 +40,7 @@ export default async function Page({ params }: Props) {
 
         <Divider />
 
-        {data !== null ? (
+        {markdownContent ? (
           <PageContent>
             <MarkdownTOC content={markdownContent} style={{ marginBottom: 60 }} />
             <Markdown>{markdownContent}</Markdown>

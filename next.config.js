@@ -2,6 +2,13 @@ const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  // GitHub Pages 는 정적 파일만 서빙하므로 out/ 으로 정적 export 합니다.
+  output: 'export',
+  // trailingSlash 는 켜지 않습니다. utterances 가 댓글 스레드를 location.pathname 으로
+  // 찾는데 후행 슬래시를 지우지 않아서, 켜면 기존 댓글 스레드와 키가 어긋납니다.
+  // GitHub Pages 가 /post/foo 요청에 post/foo.html 을 서빙해주므로 이대로 동작합니다.
+  // 이미지 최적화 서버가 없으므로 비활성화합니다.
+  images: { unoptimized: true },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/style')],
   },
@@ -10,7 +17,9 @@ module.exports = {
 
     if (oneOf) {
       // Find the module which targets *.scss|*.sass files
-      const moduleSassRule = oneOf.oneOf.find(rule => regexEqual(rule.test, /\.module\.(scss|sass)$/));
+      const moduleSassRule = oneOf.oneOf.find(rule =>
+        regexEqual(rule.test, /\.module\.(scss|sass)$/),
+      );
 
       if (moduleSassRule) {
         // Get the config object for css-loader plugin

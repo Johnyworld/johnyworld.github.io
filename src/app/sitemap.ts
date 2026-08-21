@@ -4,8 +4,8 @@ import { getPostList } from 'src/calls/getPostList';
 import { getProjects } from 'src/calls/getProjects';
 import { getToyProjects } from 'src/calls/getToyProjects';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getPostList();
+export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getPostList();
 
   const routes = ['', '/work', '/cv'].map(route => ({
     url: `${DOMAIN_URL}${route}`,

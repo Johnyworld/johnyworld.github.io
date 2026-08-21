@@ -26,13 +26,8 @@ const Categories = ({ posts, currentCategory }: Props) => {
       {Object.entries(categories)
         .sort((a, b) => b[1] - a[1])
         .map(([category, count]) => (
-          <Link href={getRoute.rootCategoryQueryString(category)}>
-            <CategoryItem
-              key={category}
-              name={category}
-              count={count}
-              isSelected={currentCategory === category}
-            />
+          <Link key={category} href={getRoute.rootCategoryQueryString(category)}>
+            <CategoryItem name={category} count={count} isSelected={currentCategory === category} />
           </Link>
         ))}
     </div>

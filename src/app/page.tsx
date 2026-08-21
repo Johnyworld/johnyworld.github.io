@@ -1,32 +1,18 @@
-import PageContent from '../components/layouts/PageContent';
-import Categories from '../components/organisms/Categories';
-import PostCards from '../components/organisms/PostCards';
-import { ALL_CATEGORIES_KEY } from '../utils/constants';
 import { Main } from '@components/layouts/Main';
+import { FilteredHomeContent, HomeContent } from '@components/organisms/HomeContent';
+import { ALL_CATEGORIES_KEY } from '@utils/constants';
+import { Suspense } from 'react';
 import { getPostList } from 'src/calls/getPostList';
 
-interface Props {
-  searchParams: {
-    c: string;
-  };
-}
-
-export default async function Page({ searchParams }: Props) {
-  const posts = await getPostList();
-  const currentCategory = searchParams.c || ALL_CATEGORIES_KEY;
+export default function Page() {
+  const posts = getPostList();
 
   return (
     <Main>
-      <PageContent style={{ marginBottom: 30 }}>
-        <Categories posts={posts} currentCategory={currentCategory} />
-      </PageContent>
-      <PageContent>
-        <PostCards
-          posts={posts.filter(
-            post => currentCategory === ALL_CATEGORIES_KEY || post.tags.includes(currentCategory),
-          )}
-        />
-      </PageContent>
+      {/* fallback 에 전체 글 목록을 그려두어, 정적 HTML 에도 목록이 담기게 합니다. */}
+      <Suspense fallback={<HomeContent posts={posts} currentCategory={ALL_CATEGORIES_KEY} />}>
+        <FilteredHomeContent posts={posts} />
+      </Suspense>
     </Main>
   );
 }

@@ -1,23 +1,12 @@
 import PageContent from '@components/layouts/PageContent';
 import Markdown from '@components/molecules/Markdown';
-import { CV_FILE_API_END_POINT } from '@utils/constants';
-import { parseBase64ToString } from '@utils/parseBase64ToString';
+import { CV_FILE_PATH } from '@utils/constants';
+import { readDataFile } from '@utils/readDataFile';
 import { Main } from '@components/layouts/Main';
 import { Metadata } from 'next';
 
-async function getData() {
-  const res = await fetch(CV_FILE_API_END_POINT, {
-    headers: { Authorization: process.env.NEXT_PUBLIC_GITHUB_AUTH ?? '' },
-  });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-}
-
-export default async function Page() {
-  const data = await getData();
-  const markdownContent = parseBase64ToString(data.content);
+export default function Page() {
+  const markdownContent = readDataFile(CV_FILE_PATH);
 
   return (
     <Main>

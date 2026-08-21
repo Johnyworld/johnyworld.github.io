@@ -1,7 +1,7 @@
 import PageContent from '@components/layouts/PageContent';
 import Markdown from '@components/molecules/Markdown';
-import { parseBase64ToString } from '@utils/parseBase64ToString';
-import { EACH_POST_API_END_POINT } from '@utils/constants';
+import { POSTS_DIR_PATH } from '@utils/constants';
+import { readDataFile } from '@utils/readDataFile';
 import { Main } from '@components/layouts/Main';
 import { Divider } from '@components/atoms/Divider';
 import { PostTitle } from '@components/organisms/PostTitle';
@@ -10,6 +10,7 @@ import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
 import { POST_PUBLISH_TAG } from '@constants/post';
+import { getPostList } from 'src/calls/getPostList';
 
 interface Props {
   params: {
@@ -17,26 +18,18 @@ interface Props {
   };
 }
 
-async function getData(fileName: string) {
-  const res = await fetch(`${EACH_POST_API_END_POINT}/${fileName}`, {
-    headers: { Authorization: process.env.NEXT_PUBLIC_GITHUB_AUTH ?? '' },
-  });
-  if (!res.ok) {
-    throw new Error('Post 데이터를 불러오는데 실패했습니다.');
-  }
-  return res.json();
+export function generateStaticParams() {
+  return getPostList().map(post => ({ fileName: post.title }));
 }
 
 const regProperties = /^---([\s\S]*?)---/;
 const regCreatedAt = /(?<=Created: ("|))([\d]{4}-[\d]{2}-[\d]{2})/;
 const regTags = /(?<=- )([\s\S]*?)(?=\n)/g;
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   try {
     const postTitle = decodeURIComponent(params.fileName);
-    const fileName = postTitle + '.md';
-    const data = await getData(fileName);
-    const markdown = parseBase64ToString(data.content);
+    const markdown = readDataFile(`${POSTS_DIR_PATH}/${postTitle}.md`);
     const properties = getProperties(markdown);
     const markdownContent = removePropertiesFromPostMarkdown(markdown);
 
