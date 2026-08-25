@@ -7,10 +7,10 @@
   "semi": true,
   "trailingComma": "all",
   "arrowParens": "avoid",
-  "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
   "htmlWhitespaceSensitivity": "css",
   "endOfLine": "auto",
   "proseWrap": "preserve",
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "bracketSameLine": false
 }

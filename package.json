@@ -54,5 +54,9 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.2"
+  },
+  "resolutions": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7"
   }
 }
