@@ -6,26 +6,6 @@
   @apply flex items-center justify-center;
 }
 
-@utility pos-center {
-  @apply top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4;
-}
-
-@utility pos-x-center {
-  @apply left-2/4 -translate-x-2/4;
-}
-
-@utility pos-y-center {
-  @apply top-2/4 -translate-y-2/4;
-}
-
-@utility bg-fit {
-  @apply bg-cover bg-no-repeat bg-center;
-}
-
-@utility fixed-top {
-  @apply fixed top-0 left-0 right-0;
-}
-
 @utility clickable {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
