@@ -37,6 +37,18 @@ GitHub Pages 는 정적 파일만 서빙하므로 서버 런타임이 없습니�
 
 ## 개발 가이드
 
+### 린트
+
+```bash
+yarn lint      # eslint .
+yarn lint:fix
+```
+
+설정은 `eslint.config.mjs` (ESLint 10 flat config)입니다.
+
+`next build` 는 flat config 를 읽지 못해 빌드 시 린트를 건너뜁니다.
+따라서 `yarn lint` 가 유일한 린트 경로이고, CI 는 빌드 앞에서 이를 실행합니다.
+
 ### 새로운 테마 추가하기
 
 #### 용어 정리

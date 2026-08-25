@@ -18,9 +18,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "tsc": "tsc --noEmit --watch",
-    "gen-posts": "ts-node --skip-project --compiler-options '{\"module\":\"commonjs\"}' src/scripts/gen-posts.ts"
+    "gen-posts": "ts-node --skip-project --compiler-options '{\"module\":\"commonjs\"}' src/scripts/gen-posts.ts",
+    "lint:fix": "eslint . --fix"
   },
   "browserslist": {
     "production": [
@@ -35,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@next/eslint-plugin-next": "^16.3.2",
     "@types/node": "^16.18.18",
     "@types/react": "^18.0.28",
     "@types/react-copy-to-clipboard": "^5.0.6",
@@ -44,15 +47,17 @@
     "@typescript-eslint/parser": "^8.67.0",
     "autoprefixer": "^10.4.16",
     "dotenv": "^17.4.2",
-    "eslint": "^8.52.0",
+    "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.0.1",
+    "globals": "^17.11.0",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "sass": "^1.69.5",
     "tailwindcss": "^3.3.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
+    "typescript-eslint": "^8.68.0",
     "typescript-plugin-css-modules": "^5.0.2"
   },
   "resolutions": {
