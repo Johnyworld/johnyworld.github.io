@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,16 +24,16 @@
         "name": "typescript-plugin-css-modules"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@containers/*": ["src/containers/*"],
-      "@constants/*": ["src/constants/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@style/*": ["src/style/*"],
-      "@utils/*": ["src/utils/*"],
-      "@stores/*": ["src/stores/*"],
-      "@data/*": ["src/data/*"]
+      "@components/*": ["./src/components/*"],
+      "@containers/*": ["./src/containers/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@style/*": ["./src/style/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@data/*": ["./src/data/*"],
+      "src/*": ["./src/*"]
     }
   },
   "include": ["src", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
