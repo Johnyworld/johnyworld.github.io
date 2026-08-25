@@ -203,7 +203,40 @@
 }
 
 .markdown.cv {
+  /**
+   * 프로필 사진 스타일. 원래 vault 의 Introduce.md 안에 <style> 블록으로 있었지만,
+   * markdown-to-jsx 9 는 마크다운 안의 raw <style> 을 escape 하므로 여기로 옮겼습니다.
+   */
+  .cv-profile {
+    position: absolute; /* 기준은 .page-content (relative) */
+    top: 106px;
+    right: 16px;
+    margin: 0;
+    z-index: -1;
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      filter: grayscale(1);
+      object-fit: cover;
+    }
+
+    @include isMobileOrLessWidth {
+      img {
+        width: 70px;
+        height: 70px;
+        opacity: 0.8;
+      }
+    }
+  }
+
   @media print {
+    #Experience,
+    #Non-Technical {
+      page-break-before: always;
+    }
+
     h2 {
       border-bottom: 2px solid;
       padding-bottom: 4px;

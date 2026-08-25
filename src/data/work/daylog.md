@@ -86,7 +86,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 
 단 3개의 정보만 입력하면 회원가입이 가능하고, 비밀번호 없이 인증코드로 로그인합니다. JWT토큰 인증방식을 사용했습니다.
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-4.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-3.jpg) |
 
@@ -99,7 +99,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 - 언어 설정이 없는 국가는 기본적으로 영어로 표시됩니다.
 - 인증 메일도 설정 된 언어로 전송됩니다.
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-3.jpg) |
 
@@ -109,7 +109,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 
 타임라인 UI로 한눈에 일정을 확인할 수 있고 한번의 클릭으로 빠른 일정 등록과 수정이 가능합니다.
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/today-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/today-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/today-4.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/today-3.jpg) |
 
@@ -121,7 +121,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 - 오전 / 오후로 구분된 원형 타임 테이블
 - 일간, 주간, 월간, 연간 단위의 리뷰 작성
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/log-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/log-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/log-3.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/log-4.jpg) |
 
@@ -132,7 +132,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 - 친구의 리뷰와 일정을 피드로 확인합니다.
 - 댓글과 좋아요로 서로 응원합니다.
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/feed-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/feed-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/feed-3.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/feed-4.jpg) |
 
@@ -146,7 +146,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 - 예쁜 색상과 개성 있는 아이콘의 조합을 만드세요.
 - 내가 만든 루틴은 다른 사람이 사용할지도 모릅니다!
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/edit-doing-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/edit-doing-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/edit-doing-3.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/edit-doing-4.jpg) |
 
@@ -155,7 +155,7 @@ Daylog의 맨 앞자인 'D'와 '기록'을 의미하는 깃털펜의 형태를 �
 - 함께할 친구를 검색합니다.
 - 프로필사진과 아이콘은 적당한 크기로 리사이즈 되어 AWS S3 버킷에 업로드 됩니다.
 
-||||
+|||||
 |---|---|---|---|
 | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/etc-1.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/etc-2.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/etc-3.jpg) | ![](https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/etc-4.jpg) |
 

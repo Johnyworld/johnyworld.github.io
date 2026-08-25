@@ -11,8 +11,8 @@ export const OverrideAnchorByLink = (
     return <Link href="/">{props.children}</Link>;
   }
 
-  // 외부 경로인 경우 새창으로 띄워준다.
-  if (/https?:\/\//.test(props.href)) {
+  // 스킴이 붙어 있으면(http, https, mailto, tel 등) 외부 경로로 보고 새창으로 띄워준다.
+  if (/^[a-z][a-z0-9+.-]*:/i.test(props.href)) {
     return (
       <Link href={props.href} target="_blank">
         {props.children}
