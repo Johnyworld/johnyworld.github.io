@@ -79,7 +79,9 @@ const scanPublishedPost = (filePath: string) => {
 };
 
 const copyPublishedPosts = (filePaths: string[], targetDir: string) => {
-  fs.existsSync(targetDir) && fs.rmdirSync(targetDir, { recursive: true });
+  if (fs.existsSync(targetDir)) {
+    fs.rmSync(targetDir, { recursive: true });
+  }
   fs.mkdirSync(targetDir);
   filePaths.forEach(filePath => {
     fs.copyFileSync(filePath, getTargetDirPathEachFile(targetDir, filePath));

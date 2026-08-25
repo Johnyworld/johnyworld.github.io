@@ -11,7 +11,7 @@
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.0",
+    "react-syntax-highlighter": "^16.1.1",
     "zustand": "^4.4.6"
   },
   "scripts": {
@@ -20,7 +20,7 @@
     "start": "next start",
     "lint": "next lint",
     "tsc": "tsc --noEmit --watch",
-    "gen-posts": "ts-node --skip-project src/scripts/gen-posts.ts"
+    "gen-posts": "ts-node --skip-project --compiler-options '{\"module\":\"commonjs\"}' src/scripts/gen-posts.ts"
   },
   "browserslist": {
     "production": [
@@ -40,12 +40,12 @@
     "@types/react-copy-to-clipboard": "^5.0.6",
     "@types/react-dom": "^18.0.11",
     "@types/react-syntax-highlighter": "^15.5.10",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
     "autoprefixer": "^10.4.16",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.4.2",
     "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.0.1",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
