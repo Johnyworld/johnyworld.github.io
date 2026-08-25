@@ -5,14 +5,14 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "cookies-next": "^4.1.0",
-    "date-fns": "^2.30.0",
-    "markdown-to-jsx": "^7.2.0",
+    "date-fns": "^4.4.0",
+    "markdown-to-jsx": "^7.7.17",
     "next": "^13.5.5",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^16.1.1",
-    "zustand": "^4.4.6"
+    "zustand": "^5.0.15"
   },
   "scripts": {
     "dev": "next dev",

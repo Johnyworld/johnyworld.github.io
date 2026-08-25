@@ -17,10 +17,9 @@ const CodeBlock = ({ className, children }: SyntaxHighlighterProps) => {
 
   useDebounce(copied, 2 * 1000, () => setCopied(false));
 
-  let lang = 'text'; // default monospaced text
-  if (className && className.startsWith('lang-')) {
-    lang = className.replace('lang-', '');
-  }
+  // markdown-to-jsx 는 버전에 따라 lang-js, language-js, 또는 둘 다("language-js lang-js")를
+  // 넘깁니다. 공백으로 끊어 첫 언어 토큰만 취합니다.
+  const lang = className?.match(/(?:^|\s)lang(?:uage)?-(\S+)/)?.[1] ?? 'text'; // default monospaced text
 
   return (
     <div className="markdown-pre">
