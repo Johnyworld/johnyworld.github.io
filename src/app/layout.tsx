@@ -7,7 +7,11 @@ import { Metadata } from 'next';
 import { DOMAIN_URL } from '@utils/constants';
 
 import '@style/index.scss';
+// main.css(tailwind) -> reset -> utilities 순서를 유지해야 합니다.
+// main.css 안에서 @import 하면 @tailwind 확장 뒤에 놓여 CSS 스펙 위반이 됩니다.
 import '@style/main.css';
+import '@style/reset.css';
+import '@style/utilities.css';
 
 const siteName = 'JohnyKimBlog';
 const title = 'Johny Kim Blog';
@@ -35,7 +39,7 @@ const themeInitializerScript = `(function() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko">
+    <html lang="ko" data-scroll-behavior="smooth">
       <head>
         <title>Johny Kim</title>
         <meta

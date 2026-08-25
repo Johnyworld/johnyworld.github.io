@@ -13,9 +13,9 @@ import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -24,7 +24,8 @@ export function generateStaticParams() {
     .map(work => ({ id: work.id }));
 }
 
-export default function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   try {
     const id = decodeURI(params.id);
     const markdownContent = readDataFile(`${WORK_DIR_PATH}/${id}.md`);
@@ -65,7 +66,8 @@ export default function Page({ params }: Props) {
   }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const id = decodeURI(params.id);
   const projects = getProjects();
   const toyProjects = getToyProjects();

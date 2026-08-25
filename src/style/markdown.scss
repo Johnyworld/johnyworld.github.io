@@ -191,9 +191,9 @@
       }
       &::marker {
         font-size: 0.9em;
-        &[open] {
-          content: '-';
-        }
+        // NOTE: 여기 있던 &[open] { content: '-' } 은 summary::marker[open] 으로
+        // 컴파일돼 무효 선택자였고 브라우저가 버려서 효과가 없었습니다.
+        // 열린 상태의 마커를 바꾸려면 details[open] summary::marker 로 써야 합니다.
       }
       &:hover {
         background-color: var(--color-gray-weakest);
