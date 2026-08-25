@@ -15,7 +15,7 @@ export const ThemeToggleButton = ({ theme, onClick, className, ...props }: Props
     <NoSSRRendering>
       <div
         {...props}
-        className={classNames('theme-toggle-button', 'rounded _clickable', className)}
+        className={classNames('theme-toggle-button', 'rounded-sm clickable', className)}
       >
         <button onClick={onClick} className="py-0.5 px-1">
           {theme === 'light' ? '🌞' : '🌜'}

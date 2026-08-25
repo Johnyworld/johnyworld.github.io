@@ -8,7 +8,7 @@ interface Props {
 export const NavigationMenuItem = ({ title, selected }: Props) => {
   return (
     <div
-      className={cx('navigation-menu-item', 'sm:text-sm py-1.5 md:py-1 px-2 rounded _clickable', {
+      className={cx('navigation-menu-item', 'sm:text-sm py-1.5 md:py-1 px-2 rounded-sm clickable', {
         'font-bold': selected,
       })}
     >

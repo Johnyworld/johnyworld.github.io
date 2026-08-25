@@ -71,7 +71,7 @@ const CheckIcon = () => {
 const IconButton = ({ children }: { children: ReactNode }) => {
   return (
     <span
-      className={classNames('print:hidden rounded _clickable', 'md:w-7 md:h-7 md:_flex-center')}
+      className={classNames('print:hidden rounded-sm clickable', 'md:w-7 md:h-7 md:flex-center')}
     >
       {children}
     </span>

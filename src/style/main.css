@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+  v4 에는 corePlugins 옵션이 없어 preflight 를 끌 수 없습니다.
+  이 프로젝트는 자체 reset.css 를 쓰므로 preflight.css 를 뺀 레이어만 임포트합니다.
+
+  reset.css 는 반드시 base 레이어로 넣어야 합니다. v4 는 실제 CSS @layer 를 쓰고
+  레이어 밖 CSS 는 특이도와 무관하게 레이어 안 CSS 를 이깁니다. 레이어 밖에 두면
+  reset 의 `div { padding: unset }` 가 .px-2 같은 유틸리티를 덮어씁니다.
+*/
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import './reset.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import './utilities.css';
+
+@config '../../tailwind.config.js';
 
 @layer base {
   * {

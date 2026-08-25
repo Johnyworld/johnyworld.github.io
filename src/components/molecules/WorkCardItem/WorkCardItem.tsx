@@ -18,7 +18,7 @@ export const WorkCardItem = ({ workStatus, title, description, thumbnail, create
   return (
     <div className="work-card-item space-y-1.5">
       <div className="relative flex">
-        <img className="w-full aspect-16/9 object-cover rounded contrast-90" src={thumbnail} />
+        <img className="w-full aspect-16/9 object-cover rounded-sm contrast-90" src={thumbnail} />
         <LiveTag workStatus={workStatus} />
       </div>
       <h3>{title}</h3>
@@ -32,7 +32,7 @@ const LiveTag = ({ workStatus }: { workStatus: WorkStatus }) => {
   return (
     <div
       className={classNames(
-        'absolute right-2 bottom-2 py-0.5 px-1 rounded shadow-sm text-2xs sm:text-xs bg-grayDarkest',
+        'absolute right-2 bottom-2 py-0.5 px-1 rounded-sm shadow-sm text-2xs sm:text-xs bg-grayDarkest',
         tagStatusVariants[workStatus],
       )}
     >

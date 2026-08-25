@@ -1,32 +1,35 @@
-@tailwind utilities;
+@utility ellipsis {
+  @apply text-ellipsis overflow-hidden whitespace-nowrap;
+}
 
-@layer utilities {
-  ._ellipsis {
-    @apply text-ellipsis overflow-hidden whitespace-nowrap;
-  }
-  ._flex-center {
-    @apply flex items-center justify-center;
-  }
-  ._pos-center {
-    @apply top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4;
-  }
-  ._pos-x-center {
-    @apply left-2/4 -translate-x-2/4;
-  }
-  ._pos-y-center {
-    @apply top-2/4 -translate-y-2/4;
-  }
-  ._bg-fit {
-    @apply bg-cover bg-no-repeat bg-center;
-  }
-  ._fixed-top {
-    @apply fixed top-0 left-0 right-0;
-  }
-  ._clickable {
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        @apply bg-clickable cursor-pointer;
-      }
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility pos-center {
+  @apply top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4;
+}
+
+@utility pos-x-center {
+  @apply left-2/4 -translate-x-2/4;
+}
+
+@utility pos-y-center {
+  @apply top-2/4 -translate-y-2/4;
+}
+
+@utility bg-fit {
+  @apply bg-cover bg-no-repeat bg-center;
+}
+
+@utility fixed-top {
+  @apply fixed top-0 left-0 right-0;
+}
+
+@utility clickable {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @apply bg-clickable cursor-pointer;
     }
   }
 }

@@ -11,7 +11,7 @@ export const Header = () => {
   const currentMenu = pathname.split('/')[1];
 
   return (
-    <header className="header sticky top-0 bg-glass backdrop-blur-sm z-10 shadow-header md:shadow-none print:hidden">
+    <header className="header sticky top-0 bg-glass backdrop-blur-xs z-10 shadow-header md:shadow-none print:hidden">
       <PageContent>
         <div className="flex justify-between items-center">
           <nav className="flex items-center h-headerHeight">

@@ -10,7 +10,7 @@ export const GoToTopButton = ({ ...props }: Props) => {
         {...props}
         className={classNames(
           'go-to-top-button',
-          'absolute bottom-4 right-4 sm:right-8 md:-right-8 w-10 h-10 _flex-center bg-glass rounded backdrop-blur-sm print:hidden',
+          'absolute bottom-4 right-4 sm:right-8 md:-right-8 w-10 h-10 flex-center bg-glass rounded-sm backdrop-blur-xs print:hidden',
           props.className,
         )}
       >
