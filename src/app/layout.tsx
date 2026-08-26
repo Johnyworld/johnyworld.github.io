@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { DOMAIN_URL } from '@utils/constants';
 import {
   DEFAULT_OG_IMAGE,
+  getAlternates,
   OG_IMAGE_SIZE,
   SITE_AUTHOR,
   SITE_DESCRIPTION,
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   publisher: SITE_AUTHOR,
   // 카테고리 필터가 /?c=공부 같은 쿼리 URL 을 만드는데, 정적 export 라
   // 그 URL 들이 홈과 완전히 같은 HTML 을 돌려줍니다. canonical 로 홈에 모아줍니다.
-  alternates: { canonical: '/' },
+  alternates: getAlternates('/'),
   openGraph: {
     type: 'website',
     locale: 'ko_KR',

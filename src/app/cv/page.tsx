@@ -4,7 +4,13 @@ import { CV_FILE_PATH } from '@utils/constants';
 import { readDataFile } from '@utils/readDataFile';
 import { Main } from '@components/layouts/Main';
 import { Metadata } from 'next';
-import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_AUTHOR, SITE_NAME } from '@constants/site';
+import {
+  getAlternates,
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_SIZE,
+  SITE_AUTHOR,
+  SITE_NAME,
+} from '@constants/site';
 import { getRoute } from '@utils/routes';
 
 export default function Page() {
@@ -27,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: getAlternates(url),
     openGraph: {
       type: 'profile',
       locale: 'ko_KR',

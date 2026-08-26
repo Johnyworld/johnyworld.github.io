@@ -2,7 +2,7 @@ import { Main } from '@components/layouts/Main';
 import PageContent from '@components/layouts/PageContent';
 import { WorkList } from '@components/organisms/WorkList';
 import { Metadata } from 'next';
-import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_NAME } from '@constants/site';
+import { getAlternates, DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_NAME } from '@constants/site';
 import { getRoute } from '@utils/routes';
 import { getProjects } from 'src/calls/getProjects';
 import { getToyProjects } from 'src/calls/getToyProjects';
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: getAlternates(url),
     openGraph: {
       type: 'website',
       locale: 'ko_KR',

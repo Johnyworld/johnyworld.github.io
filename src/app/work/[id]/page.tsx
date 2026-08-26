@@ -11,7 +11,13 @@ import { getToyProjects } from 'src/calls/getToyProjects';
 import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
-import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
+import {
+  getAlternates,
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_SIZE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+} from '@constants/site';
 import { getDescriptionFromMarkdown } from '@utils/post';
 import { getRoute } from '@utils/routes';
 import { JsonLd } from '@components/atoms/JsonLd';
@@ -98,7 +104,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: getAlternates(url),
     openGraph: {
       type: 'article',
       locale: 'ko_KR',

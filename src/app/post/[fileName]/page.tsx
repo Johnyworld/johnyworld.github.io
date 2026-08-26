@@ -13,6 +13,7 @@ import { JsonLd } from '@components/atoms/JsonLd';
 import { getBlogPostingJsonLd } from '@utils/jsonLd';
 import { POST_PUBLISH_TAG } from '@constants/post';
 import {
+  getAlternates,
   OG_IMAGE_SIZE,
   SITE_AUTHOR,
   SITE_DESCRIPTION,
@@ -125,7 +126,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return {
     title: postTitle,
     description,
-    alternates: { canonical: url },
+    alternates: getAlternates(url),
     openGraph: {
       type: 'article',
       locale: 'ko_KR',
