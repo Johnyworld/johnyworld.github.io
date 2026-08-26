@@ -6,8 +6,10 @@ import { useDebounce } from '@utils/useDebounce';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 export const OverridePre = ({ children, ...rest }: HTMLAttributes<HTMLPreElement>) => {
-  if (isValidElement(children) && children.type === 'code') {
-    return CodeBlock(children['props']);
+  // React 19 타입에서 ReactElement.props 가 any -> unknown 이 되어,
+  // isValidElement 에 props 타입을 넘겨 좁힙니다.
+  if (isValidElement<SyntaxHighlighterProps>(children) && children.type === 'code') {
+    return CodeBlock(children.props);
   }
   return <pre {...rest}>{children}</pre>;
 };
