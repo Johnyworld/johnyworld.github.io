@@ -42,7 +42,7 @@ const fingerprint = html => {
     h2: count(html, /<h2/g),
     h3: count(html, /<h3/g),
     p: count(html, /<p[ >]/g),
-    li: count(html, /<li/g),
+    li: count(html, /<li[ >]/g),
     a: count(html, /<a /g),
     img: count(html, /<img/g),
     table: count(html, /<table/g),
