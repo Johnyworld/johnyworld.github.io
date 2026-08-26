@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # sitemap 의 lastmod 를 git 커밋 날짜로 구합니다.
+          # 얕은 클론이면 파일별 커밋 이력을 못 읽어 lastmod 가 빠집니다.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
