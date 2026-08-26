@@ -35,7 +35,11 @@ const themeInitializerScript = `(function() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" data-scroll-behavior="smooth">
+    // 아래 인라인 스크립트가 하이드레이션 전에 data-theme 를 붙입니다.
+    // 정적 export 라 서버는 쿠키를 모르므로 이 속성 불일치는 의도된 것입니다.
+    // suppressHydrationWarning 은 이 요소 한 단계에만 적용되어, 하위의 진짜
+    // 불일치는 계속 보고됩니다.
+    <html lang="ko" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <title>Johny Kim</title>
         <meta
