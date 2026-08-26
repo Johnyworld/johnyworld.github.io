@@ -17,7 +17,7 @@ export const PostTitle = ({ title, createdAt, tags }: Props) => {
         {createdAt && formatISODatePart(createdAt)}
         {createdAt && ' · '}
         {tags.map(tag => (
-          <Link className="text-primary" href={getRoute.rootCategoryQueryString(tag)}>
+          <Link key={tag} className="text-primary" href={getRoute.rootCategoryQueryString(tag)}>
             {`#${tag}`}
           </Link>
         ))}

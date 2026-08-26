@@ -19,19 +19,19 @@ export const WorkList = ({ title, works }: Props) => {
           const workStatus = hasHref ? WorkStatus.Live : WorkStatus.Legacy;
           if (hasOwnPage) {
             return (
-              <Link href={`${getRoute.work()}/${work.id}`}>
+              <Link key={work.id} href={`${getRoute.work()}/${work.id}`}>
                 <WorkCardItem {...workProps} workStatus={workStatus} />
               </Link>
             );
           }
           if (href) {
             return (
-              <Link href={href} target="_blank">
+              <Link key={work.id} href={href} target="_blank">
                 <WorkCardItem {...workProps} workStatus={workStatus} />
               </Link>
             );
           }
-          return <WorkCardItem {...workProps} workStatus={workStatus} />;
+          return <WorkCardItem key={work.id} {...workProps} workStatus={workStatus} />;
         })}
       </div>
     </div>
