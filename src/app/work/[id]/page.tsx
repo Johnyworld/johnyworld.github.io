@@ -11,6 +11,9 @@ import { getToyProjects } from 'src/calls/getToyProjects';
 import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
+import { SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
+import { getDescriptionFromMarkdown } from '@utils/post';
+import { getRoute } from '@utils/routes';
 
 interface Props {
   params: Promise<{
@@ -73,10 +76,35 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const toyProjects = getToyProjects();
   const project = [...projects, ...toyProjects].find(work => work.id === id);
 
+  const title = project?.title ?? 'Work';
+  const url = getRoute.workWithId(id);
+  // 프로젝트 소개는 한 줄뿐이라, 있으면 그걸 쓰고 없으면 본문에서 뽑습니다.
+  const description = project?.description || readWorkDescription(id);
+
   return {
-    title: project?.title ?? 'Johny Kim',
+    title,
+    description,
+    alternates: { canonical: url },
     openGraph: {
-      title: id,
+      type: 'article',
+      locale: 'ko_KR',
+      url,
+      siteName: SITE_NAME,
+      title,
+      description,
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
     },
   };
 }
+
+const readWorkDescription = (id: string) => {
+  try {
+    return getDescriptionFromMarkdown(readDataFile(`${WORK_DIR_PATH}/${id}.md`));
+  } catch {
+    return SITE_DESCRIPTION;
+  }
+};

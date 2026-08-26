@@ -10,6 +10,9 @@ import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
 import { POST_PUBLISH_TAG } from '@constants/post';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
+import { getDescriptionFromMarkdown } from '@utils/post';
+import { getRoute } from '@utils/routes';
 import { getPostList } from 'src/calls/getPostList';
 
 interface Props {
@@ -30,7 +33,7 @@ export default async function Page(props: Props) {
   const params = await props.params;
   try {
     const postTitle = decodeURIComponent(params.fileName);
-    const markdown = readDataFile(`${POSTS_DIR_PATH}/${postTitle}.md`);
+    const markdown = readPostMarkdown(postTitle);
     const properties = getProperties(markdown);
     const markdownContent = removePropertiesFromPostMarkdown(markdown);
 
@@ -67,6 +70,10 @@ export default async function Page(props: Props) {
   }
 }
 
+const readPostMarkdown = (postTitle: string) => {
+  return readDataFile(`${POSTS_DIR_PATH}/${postTitle}.md`);
+};
+
 const getProperties = (fileContent: string) => {
   const propertiesPart = fileContent.match(regProperties)?.[0];
   const createdAt = propertiesPart?.match(regCreatedAt)?.[0];
@@ -87,11 +94,45 @@ const removePropertiesFromPostMarkdown = (markdown: string) => {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const postTitle = decodeURIComponent(params.fileName);
+  const url = getRoute.postWithFileName(postTitle);
+
+  // 글마다 다른 요약이 없으면 41 개 글이 전부 같은 스니펫으로 노출되므로,
+  // 본문에서 뽑아 씁니다. 파일을 못 읽으면 사이트 기본 설명으로 떨어집니다.
+  const { description, createdAt } = readPostSummary(postTitle);
+  const modifiedAt = getPostList().find(post => post.title === postTitle)?.modifiedAt;
 
   return {
     title: postTitle,
+    description,
+    alternates: { canonical: url },
     openGraph: {
+      type: 'article',
+      locale: 'ko_KR',
+      url,
+      siteName: SITE_NAME,
       title: postTitle,
+      description,
+      publishedTime: createdAt,
+      modifiedTime: modifiedAt,
+      authors: [SITE_AUTHOR],
+    },
+    twitter: {
+      card: 'summary',
+      title: postTitle,
+      description,
     },
   };
 }
+
+const readPostSummary = (postTitle: string) => {
+  try {
+    const markdown = readPostMarkdown(postTitle);
+    const createdAt = getProperties(markdown)?.createdAt;
+    return {
+      description: getDescriptionFromMarkdown(removePropertiesFromPostMarkdown(markdown)),
+      createdAt: createdAt ? new Date(createdAt).toISOString() : undefined,
+    };
+  } catch {
+    return { description: SITE_DESCRIPTION, createdAt: undefined };
+  }
+};

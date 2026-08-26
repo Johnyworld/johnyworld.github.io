@@ -14,6 +14,9 @@ export const getRoute = {
   work: () => {
     return `/work`;
   },
+  workWithId: (id: string) => {
+    return `/work/${id}`;
+  },
   cv: () => {
     return `/cv`;
   },

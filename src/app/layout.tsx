@@ -5,18 +5,53 @@ import { Header } from '@containers/Header';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { DOMAIN_URL } from '@utils/constants';
+import {
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_TITLE,
+} from '@constants/site';
 
 import '@style/index.scss';
 import '@style/main.css';
 
-const siteName = 'JohnyKimBlog';
-const title = 'Johny Kim Blog';
-const description = '프론트엔드 개발자 조니의 블로그입니다.';
-const keywords =
-  '프론트엔드, 개발자, 조니킴, 블로그, 김재환, frontend, developer, engineer, johny, johny kim, blog';
-
+// head 에 태그를 직접 쓰면 Next 가 metadata 로 만든 태그와 중복돼서,
+// 글 페이지마다 title/og:title 이 두 벌씩 나가고 뒤엣것이 이깁니다.
+// 검색/공유용 태그는 전부 이 metadata 객체로만 관리합니다.
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: SITE_AUTHOR }],
+  creator: SITE_AUTHOR,
+  publisher: SITE_AUTHOR,
+  // 카테고리 필터가 /?c=공부 같은 쿼리 URL 을 만드는데, 정적 export 라
+  // 그 URL 들이 홈과 완전히 같은 HTML 을 돌려줍니다. canonical 로 홈에 모아줍니다.
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: '/',
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  verification: {
+    other: {
+      // naver 검색엔진 확인
+      'naver-site-verification': 'ebb0335cc1fb0aeadb38243f2293b50556fc0319',
+    },
+  },
 };
 
 // 정적 export 에서는 서버가 쿠키를 읽을 수 없으므로,
@@ -41,23 +76,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // 불일치는 계속 보고됩니다.
     <html lang="ko" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <title>Johny Kim</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-
-        {/* naver 검색엔진 확인 */}
-        <meta name="naver-site-verification" content="ebb0335cc1fb0aeadb38243f2293b50556fc0319" />
-
-        {/* Open Tags */}
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:keywords" content={keywords} />
-        <meta property="og:site_name" content={siteName} />
 
         {/* Fonts */}
         <link
