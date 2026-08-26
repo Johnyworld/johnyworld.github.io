@@ -4,6 +4,7 @@ import { Footer } from '@containers/Footer';
 import { Header } from '@containers/Header';
 import { Suspense } from 'react';
 import { Metadata, Viewport } from 'next';
+import { Inconsolata } from 'next/font/google';
 import { DOMAIN_URL } from '@utils/constants';
 import {
   DEFAULT_OG_IMAGE,
@@ -15,6 +16,14 @@ import {
   SITE_NAME,
   SITE_TITLE,
 } from '@constants/site';
+
+// 코드 폰트는 라틴 전용이라 가볍습니다. 셀프 호스팅하면 @font-face 가 자체
+// 스타일시트에 들어가서, 렌더를 막는 외부 요청이 하나 사라집니다.
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inconsolata',
+});
 
 import '@style/index.scss';
 import '@style/main.css';
@@ -86,17 +95,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // 정적 export 라 서버는 쿠키를 모르므로 이 속성 불일치는 의도된 것입니다.
     // suppressHydrationWarning 은 이 요소 한 단계에만 적용되어, 하위의 진짜
     // 불일치는 계속 보고됩니다.
-    <html lang="ko" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang="ko"
+      className={inconsolata.variable}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
-        {/* Fonts */}
+        {/* Pretendard 는 한글 전체를 담아 weight 당 750KB 라, unicode-range 로 쪼갠
+            dynamic subset 을 씁니다. 페이지에 실제로 쓰인 글자 조각만 받아서
+            글 한 편 기준 150~240KB 로 떨어집니다.
+            preconnect 로 이 스타일시트의 DNS/TLS 를 미리 끊어둡니다. */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
         <link
           rel="stylesheet"
           type="text/css"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
-          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
         />
         <script
           dangerouslySetInnerHTML={{
