@@ -7,6 +7,7 @@ import { CopyableContent } from '../CopyableContent';
 import { OverridePre } from './overrides/OverridePre';
 import { OverrideTable } from './overrides/OverrideTable';
 import { OverrideIframe } from './overrides/OverrideIframe';
+import { OverrideImage } from './overrides/OverrideImage';
 import classNames from 'classnames';
 
 interface Props {
@@ -30,6 +31,7 @@ const Markdown = ({ className, children, options }: Props) => {
           pre: OverridePre,
           table: OverrideTable,
           iframe: OverrideIframe,
+          img: OverrideImage,
           h2: props => (
             <h2 {...props}>
               <CopyableContent text={basePath + `#${props.id}`}>{props.children}</CopyableContent>

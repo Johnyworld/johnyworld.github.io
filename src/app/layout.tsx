@@ -3,7 +3,7 @@ import { GoToTop } from '@containers/GoToTop';
 import { Footer } from '@containers/Footer';
 import { Header } from '@containers/Header';
 import { Suspense } from 'react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { DOMAIN_URL } from '@utils/constants';
 import {
   DEFAULT_OG_IMAGE,
@@ -59,6 +59,13 @@ export const metadata: Metadata = {
   },
 };
 
+// head 에 viewport 를 직접 쓰면 Next 기본 태그와 두 벌이 됩니다.
+// 확대 차단(maximum-scale, user-scalable=no)은 접근성 감점 항목이라 함께 걷어냅니다.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 // 정적 export 에서는 서버가 쿠키를 읽을 수 없으므로,
 // 첫 페인트 전에 인라인 스크립트로 테마를 결정합니다.
 const themeInitializerScript = `(function() {
@@ -81,11 +88,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // 불일치는 계속 보고됩니다.
     <html lang="ko" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-
         {/* Fonts */}
         <link
           rel="stylesheet"

@@ -8,9 +8,11 @@ interface Props {
 const PostCardItem = ({ post }: Props) => {
   return (
     <div className="post-card-item rounded-sm px-2.5 py-1.5 -mx-2.5 clickable">
-      <h3 className="text-md whitespace-nowrap ellipsis">{post.title}</h3>
+      <h2 className="text-md whitespace-nowrap ellipsis">{post.title}</h2>
       <p className="text-sm text-gray mt-0.5">
-        {post.createdAt && formatISODatePart(post.createdAt)}
+        {post.createdAt && (
+          <time dateTime={post.createdAt}>{formatISODatePart(post.createdAt)}</time>
+        )}
         {post.createdAt && ' · '}
         {post.tags.join(', ')}
       </p>
