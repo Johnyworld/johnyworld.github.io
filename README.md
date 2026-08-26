@@ -19,6 +19,10 @@ git commit -m "data: Update posts"
 git push
 ```
 
+공유 카드용 OG 이미지(`public/og/`)는 `yarn build` 가 `src/data/posts.json` 을 보고
+자동으로 만들기 때문에 커밋하지 않습니다. 카드 모양만 손볼 때는 `yarn gen-og` 로
+따로 돌릴 수 있습니다. 한글을 그리려면 `assets/Pretendard-Bold.woff` 가 필요합니다.
+
 ### 최초 설정 (한 번만)
 
 1. 레포 이름이 `johnyworld.github.io` 여야 `https://johnyworld.github.io` 루트로 서빙됩니다.

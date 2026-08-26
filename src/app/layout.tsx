@@ -6,6 +6,8 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { DOMAIN_URL } from '@utils/constants';
 import {
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_SIZE,
   SITE_AUTHOR,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -40,11 +42,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    images: [{ ...OG_IMAGE_SIZE, url: DEFAULT_OG_IMAGE, alt: SITE_TITLE }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
   },
   verification: {
     other: {

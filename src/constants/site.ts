@@ -15,3 +15,9 @@ export const SITE_KEYWORDS = [
   'johny kim',
   'blog',
 ];
+
+/** OG 이미지는 scripts/gen-og-images.mjs 가 빌드 전에 public/og/ 로 떨어뜨립니다. */
+export const OG_IMAGE_SIZE = { width: 1200, height: 630 };
+export const DEFAULT_OG_IMAGE = '/og/default.png';
+export const getPostOgImage = (postTitle: string) =>
+  `/og/post/${encodeURIComponent(postTitle)}.png`;

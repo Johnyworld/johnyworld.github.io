@@ -2,7 +2,7 @@ import { Main } from '@components/layouts/Main';
 import PageContent from '@components/layouts/PageContent';
 import { WorkList } from '@components/organisms/WorkList';
 import { Metadata } from 'next';
-import { SITE_NAME } from '@constants/site';
+import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_NAME } from '@constants/site';
 import { getRoute } from '@utils/routes';
 import { getProjects } from 'src/calls/getProjects';
 import { getToyProjects } from 'src/calls/getToyProjects';
@@ -43,11 +43,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: SITE_NAME,
       title,
       description,
+      images: [{ ...OG_IMAGE_SIZE, url: DEFAULT_OG_IMAGE, alt: title }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title,
       description,
+      images: [DEFAULT_OG_IMAGE],
     },
   };
 }

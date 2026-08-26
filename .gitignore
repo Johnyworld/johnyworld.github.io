@@ -37,3 +37,6 @@ scripts/.build-baseline.json
 
 # TypeScript 증분 빌드 산출물 (빌드할 때마다 달라짐)
 tsconfig.tsbuildinfo
+
+# OG 이미지는 posts.json 에서 빌드 시 생성합니다 (scripts/gen-og-images.mjs)
+public/og/

@@ -11,7 +11,7 @@ import { getToyProjects } from 'src/calls/getToyProjects';
 import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
-import { SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
+import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
 import { getDescriptionFromMarkdown } from '@utils/post';
 import { getRoute } from '@utils/routes';
 
@@ -92,11 +92,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       siteName: SITE_NAME,
       title,
       description,
+      images: [{ ...OG_IMAGE_SIZE, url: DEFAULT_OG_IMAGE, alt: title }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title,
       description,
+      images: [DEFAULT_OG_IMAGE],
     },
   };
 }

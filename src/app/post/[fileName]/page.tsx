@@ -10,7 +10,13 @@ import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
 import { POST_PUBLISH_TAG } from '@constants/post';
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
+import {
+  OG_IMAGE_SIZE,
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  getPostOgImage,
+} from '@constants/site';
 import { getDescriptionFromMarkdown } from '@utils/post';
 import { getRoute } from '@utils/routes';
 import { getPostList } from 'src/calls/getPostList';
@@ -100,6 +106,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   // 본문에서 뽑아 씁니다. 파일을 못 읽으면 사이트 기본 설명으로 떨어집니다.
   const { description, createdAt } = readPostSummary(postTitle);
   const modifiedAt = getPostList().find(post => post.title === postTitle)?.modifiedAt;
+  const ogImage = getPostOgImage(postTitle);
 
   return {
     title: postTitle,
@@ -115,11 +122,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       publishedTime: createdAt,
       modifiedTime: modifiedAt,
       authors: [SITE_AUTHOR],
+      images: [{ ...OG_IMAGE_SIZE, url: ogImage, alt: postTitle }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: postTitle,
       description,
+      images: [ogImage],
     },
   };
 }

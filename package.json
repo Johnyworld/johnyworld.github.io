@@ -16,14 +16,15 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/gen-og-images.mjs && next build",
     "start": "next start",
     "lint": "eslint .",
     "tsc": "tsc --noEmit --watch",
     "gen-posts": "ts-node --skip-project --compiler-options '{\"module\":\"commonjs\"}' src/scripts/gen-posts.ts",
     "lint:fix": "eslint . --fix",
     "snapshot": "node scripts/snapshot-build.mjs",
-    "snapshot:check": "node scripts/snapshot-build.mjs --check"
+    "snapshot:check": "node scripts/snapshot-build.mjs --check",
+    "gen-og": "node scripts/gen-og-images.mjs"
   },
   "browserslist": {
     "production": [

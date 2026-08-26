@@ -4,7 +4,7 @@ import { CV_FILE_PATH } from '@utils/constants';
 import { readDataFile } from '@utils/readDataFile';
 import { Main } from '@components/layouts/Main';
 import { Metadata } from 'next';
-import { SITE_AUTHOR, SITE_NAME } from '@constants/site';
+import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_AUTHOR, SITE_NAME } from '@constants/site';
 import { getRoute } from '@utils/routes';
 
 export default function Page() {
@@ -35,11 +35,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: SITE_NAME,
       title,
       description,
+      images: [{ ...OG_IMAGE_SIZE, url: DEFAULT_OG_IMAGE, alt: title }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title,
       description,
+      images: [DEFAULT_OG_IMAGE],
     },
   };
 }
