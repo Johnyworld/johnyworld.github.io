@@ -31,3 +31,6 @@ next-env.d.ts
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 업그레이드 회귀 비교용 기준선 (로컬 전용, 콘텐츠 변경 시마다 달라짐)
+scripts/.build-baseline.json

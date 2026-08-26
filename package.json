@@ -21,7 +21,9 @@
     "lint": "eslint .",
     "tsc": "tsc --noEmit --watch",
     "gen-posts": "ts-node --skip-project --compiler-options '{\"module\":\"commonjs\"}' src/scripts/gen-posts.ts",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "snapshot": "node scripts/snapshot-build.mjs",
+    "snapshot:check": "node scripts/snapshot-build.mjs --check"
   },
   "browserslist": {
     "production": [
