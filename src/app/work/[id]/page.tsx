@@ -14,6 +14,8 @@ import { PostComment } from '@containers/PostComment';
 import { DEFAULT_OG_IMAGE, OG_IMAGE_SIZE, SITE_DESCRIPTION, SITE_NAME } from '@constants/site';
 import { getDescriptionFromMarkdown } from '@utils/post';
 import { getRoute } from '@utils/routes';
+import { JsonLd } from '@components/atoms/JsonLd';
+import { getWorkJsonLd } from '@utils/jsonLd';
 
 interface Props {
   params: Promise<{
@@ -38,6 +40,18 @@ export default async function Page(props: Props) {
 
     return (
       <Main>
+        {project && (
+          <JsonLd
+            data={getWorkJsonLd({
+              title: project.title,
+              description: project.description || getDescriptionFromMarkdown(markdownContent),
+              path: getRoute.workWithId(id),
+              image: DEFAULT_OG_IMAGE,
+              createdAt: project.createdAt,
+            })}
+          />
+        )}
+
         <PageContent>
           {project ? <WorkTitle data={project} /> : <h1>데이터가 없어요</h1>}
         </PageContent>

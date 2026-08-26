@@ -9,6 +9,8 @@ import { NotFound } from '@components/organisms/NotFound';
 import { MarkdownTOC } from '@components/molecules/MarkdownTOC';
 import { Metadata } from 'next';
 import { PostComment } from '@containers/PostComment';
+import { JsonLd } from '@components/atoms/JsonLd';
+import { getBlogPostingJsonLd } from '@utils/jsonLd';
 import { POST_PUBLISH_TAG } from '@constants/post';
 import {
   OG_IMAGE_SIZE,
@@ -45,6 +47,18 @@ export default async function Page(props: Props) {
 
     return (
       <Main>
+        <JsonLd
+          data={getBlogPostingJsonLd({
+            title: postTitle,
+            description: getDescriptionFromMarkdown(markdownContent),
+            path: getRoute.postWithFileName(postTitle),
+            image: getPostOgImage(postTitle),
+            createdAt: properties?.createdAt,
+            modifiedAt: getPostList().find(post => post.title === postTitle)?.modifiedAt,
+            tags: properties?.tags,
+          })}
+        />
+
         <PageContent>
           <PostTitle
             title={postTitle}
