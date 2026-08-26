@@ -3,7 +3,9 @@
 import { Theme } from 'type';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { setCookie, getCookie } from 'cookies-next';
+// cookies-next 6 은 client/server 엔트리가 나뉩니다. 이 스토어는 'use client' 이므로
+// client 엔트리를 써야 동기 반환 타입이 나옵니다 (루트 엔트리는 union 타입).
+import { setCookie, getCookie } from 'cookies-next/client';
 
 interface ThemeState {
   theme: Theme;
